@@ -1,3 +1,5 @@
+![Image](https://github.com/AshrafJurdi/Submissions/blob/master/0.jpg "Profile Picture")
+
 Ashraf El Jurdi
 =======
 
@@ -15,7 +17,7 @@ organized, data driven and dedicated applicant.
 **Phone**:+96170483040 - 
 **Location**: Beirut, Lebanon
 
-**LinkedIn**: www.linkedin.com/in/ashraf-el-jurdi-239137146
+[**LinkedIn**](Ashraf El Jurdi) [Ashraf El Jurdi](www.linkedin.com/in/ashraf-el-jurdi-239137146)
 
 ---
 
