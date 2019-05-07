@@ -15,7 +15,7 @@ organized, data driven and dedicated applicant.
 **Phone**:+96170483040 - 
 **Location**: Beirut, Lebanon
 
-**LinkedIn**: www.linkedin.com/in/ashraf-el-jurdi-239137146@ashrafeljurdi
+**LinkedIn**: www.linkedin.com/in/ashraf-el-jurdi-239137146
 
 ---
 
