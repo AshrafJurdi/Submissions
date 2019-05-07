@@ -91,7 +91,7 @@ American University of Science & Technology.
 Verbal and Written Communication
 
 ## PERSONAL PROJECTS
-###Soilutioneers (Senior Project)
+### Soilutioneers (Senior Project)
 (02/2017 – 06/2017)
 * This project consisted of creating a startup company that
 provides farmers with solutions using IOT and AI to optimize
