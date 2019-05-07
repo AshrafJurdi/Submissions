@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Ashraf El Jurdi
 =======
 
@@ -123,6 +122,4 @@ business project of that academic year.
 * Microsoft Outlook 
 * ODOO 
 * QuickBooks
-=======
 
->>>>>>> bfc95c04d5e904777d7a2eb934382c07168712b3
