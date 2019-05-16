@@ -1,0 +1,315 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: lato, Arial, sans-serif;
+}
+
+
+#\#wrapper {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+header {
+    background-color: grey;
+}
+
+hgroup {
+    color: red;
+    float: left;
+    margin: 25px 20px 15px 200px;
+}
+figure {
+    position: relative;
+    padding: 20px;
+}
+
+#contact {
+    position: absolute;
+    top: 5px;
+    right: 0;
+    left: 650px;
+}
+#contact h3 {
+    padding: 0;
+}
+h3 {
+    padding: 0 0 10px 30px;
+}
+
+h4 {
+    padding-top: 20px;
+}
+
+.contacts {
+    width: 700px;
+    background-color: black;
+    
+}
+.contact {
+    display: flex;
+}
+
+.contact-type {
+    width: 130px;
+    background-color: red;
+    color: white;
+}
+
+.contact-value {
+    padding: 2px 8px;
+    background-color: black;
+    color: red;
+}
+
+.contact-value a {
+    color: red;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 70px 70px 0 140px;
+    margin-bottom: 120px;
+}
+
+#about, #competencies, #experiences, #education, #hobbies {
+  flex-basis: 50%;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+#about::before {
+    position: absolute;
+    content: '\2022';
+    color: red;
+    font-size: 70px;
+    top: -32px;
+}
+  
+#about {
+    position: sticky;
+}
+
+#about h3 {
+    padding: 0 0 10px 30px;
+}
+  
+#about p {
+    padding: 16px 20px 20px 0;
+    border-top: 1px solid grey;
+    flex-basis: 100%;
+}
+
+#competencies::before {
+    position: absolute;
+    content: '\2022';
+    color: red;
+    font-size: 70px;
+    top: -32px;
+}
+  
+#competencies {
+    position: relative;
+}
+  
+#competencies h3 {
+    padding: 0 0 10px 30px;
+}
+
+.skills-primary::before {
+    content: 'Main';
+}
+  
+.skills-secondary::before {
+    content: 'Other';
+}
+  
+.skills-primary {
+    border-top: 1px solid grey;
+  
+    padding: 16px 0px 20px 0px;
+}
+  
+.skill {
+    background-color: lightgrey;
+    border: 2px solid white;
+    position: sticky;
+} 
+  
+.skill span {
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    bottom: 0;
+    color: white;
+}
+  
+.skill[data-skill='9']::before {
+    content: '';
+    height: 20px;
+    background-color: red;
+    display: inline-block;
+    margin: 3px 3px 0px 3px;
+    width: 90%; 
+}
+  
+.skill[data-skill='7']::before {
+    content: '';
+    height: 20px;
+    background-color: red;
+    display: inline-block;
+    margin: 3px 3px 0px 3px;
+    width: 70%; 
+}
+  
+.skill[data-skill='5']::before {
+    content: '';
+    height: 20px;
+    background-color: red;
+    display: inline-block;
+    margin: 3px 3px 0px 3px;
+    width: 50%; 
+}
+  
+.skill[data-skill='3']::before {
+    content: '';
+    height: 20px;
+    background-color: red;
+    display: inline-block;
+    margin: 3px 3px 0px 3px;
+    width: 30%; 
+}
+  
+.skill[data-skill='1']::before {
+    content: '';
+    height: 20px;
+    background-color: red;
+    display: inline-block;
+    margin: 3px 3px 0px 3px;
+    width: 10%; 
+}
+
+
+#experiences {
+    position: relative;
+}
+
+#experiences::before {
+    position: absolute;
+    content: '\2022';
+    color: red;
+    font-size: 70px;
+    top: -30px;
+}
+
+
+.experience {
+    flex-basis: 100%;
+}
+  
+.experience:first-of-type {
+    border-top: 1px solid grey
+}
+  
+.experience-type {
+    color: red;
+}
+  
+.experience-type::after {
+    content: '@';
+    color: red;
+    margin-left: 5px;
+}
+  
+.experience-institution {
+    color: red;
+    font-weight: 100;
+}
+  
+.experience-details {
+    margin-top: 3px;
+    margin-left: 10px;
+    color: rgb(168, 161, 161);
+}
+  
+.experience-date-separator {
+    color: red;
+}
+  
+.experience p {
+    padding: 18px 22px 22px 0;
+}
+
+#education {
+    position: relative;
+}
+
+#education::before {
+    position: absolute;
+    content: '\2022';
+    color: red;
+    font-size: 70px;
+    top: -30px;
+}
+
+#hobbies {
+    position: relative;
+}
+
+#hobbies::before {
+    position: absolute;
+    content: '\2022';
+    color: red;
+    font-size: 70px;
+    top: -32px;
+}
+
+ul {
+    border-top: 1px solid gray;
+    padding-top: 20px;
+}
+  
+li {
+    margin-left: 42px;
+}
+
+@media (max-width: 768px) {
+    .content {
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: column;
+      padding: 0 15px 0 15px;
+    }
+  
+    #about,
+    #competencies,
+    #experiences,
+    #education,
+    #hobbies {
+      flex-basis: 100%;
+    }
+  
+    header {
+      padding: 10px 0 10px 0;
+    }
+  
+    hgroup {
+      width: 80%;
+      margin: 0 30px 0 50px;
+    }
+  
+    figure img {
+      margin-left: 20px;
+      margin-top: 20px;
+    }
+  
+    #contact {
+      visibility: hidden;
+    }
+  }
