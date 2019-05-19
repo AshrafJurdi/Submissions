@@ -5,7 +5,7 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    font-family: lato, Arial, sans-serif;
+
 }
 
 
@@ -132,7 +132,6 @@ h4 {
   
 .skills-primary {
     border-top: 1px solid grey;
-  
     padding: 16px 0px 20px 0px;
 }
   

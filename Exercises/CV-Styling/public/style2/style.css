@@ -1,0 +1,424 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+#\#wrapper {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 50px 100px 50px 160px;
+}
+
+header {
+    position: relative;
+    border-bottom: 2px solid lightgray;
+    height: 70px;
+}
+
+h2 {
+    visibility: hidden;
+}
+
+figure {
+    position: absolute;
+    left: 780px;
+    top: -10px;
+    transform: rotate(-13deg);
+    float: right;
+}
+
+figure img {
+    width: 200px;
+}
+
+#about h3 {
+    visibility: hidden;
+}
+
+#about p {
+    width: 70%;
+    color: gray;
+    font-style: italic;
+    text-align: justify;
+}
+
+#competencies {
+    height: 100px;  
+    margin-top: 100px;
+}
+  
+#competencies h3 {
+    float: left;
+    width: 180px;
+    height: 100%;
+    font-style: italic;
+    border-right: 1px solid black;
+}
+  
+.skills {
+    height: 50px;
+}
+  
+.skill:first-of-type {
+    margin-left: 10px;
+  }
+  
+.skill {
+    position: relative;
+    display: inline-block;
+    background-color: teal;
+    padding: 10px 10px;
+    margin: 0 2px 0 2px;
+    width: 150px;
+}
+
+.skills-primary {
+    color: white;
+}
+
+.skills-primary .skill[data-skill='1']::after {
+    content: '\22C6';
+    color: white;
+    font-size: 30px;
+    font-weight: 900;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+  
+.skills-primary .skill[data-skill='3']::after {
+    content: '\22C6\22C6';
+    color: white;
+    font-size: 30px;
+    font-weight: 900;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+  
+.skills-primary .skill[data-skill='5']::after {
+    content: '\22C6\22C6\22C6';
+    color: white;
+    font-size: 30px;
+    font-weight: 900;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+  
+.skills-secondary .skill[data-skill='5']::after {
+    content: '\22C6\22C6\22C6';
+    color: white;
+    font-size: 20px;
+    font-weight: 900;
+    position: absolute;
+    top: 13px;
+    right: 10px;
+}
+  
+.skills-secondary .skill[data-skill='7']::after {
+    content: '\22C6\22C6\22C6\22C6';
+    color: white;
+    font-size: 20px;
+    font-weight: 900;
+    position: absolute;
+    top: 13px;
+    right: 10px;
+}
+  
+.skills-secondary .skill[data-skill='9']::after {
+    content: '\22C6\22C6\22C6\22C6\22C6';
+    color: white;
+    font-size: 20px;
+    font-weight: 900;
+    position: absolute;
+    top: 13px;
+    right: 10px;
+}
+  
+
+  
+.skills-secondary .skill span {
+    font-size: 11px;
+    color: white;
+    font-weight: 500;
+}             
+
+#experiences {
+    margin-top: 45px;
+    height: 310px;
+
+}
+
+#experiences h3 {
+    float: left;
+    width: 180px;
+    height: 100%;
+    font-style: italic;
+    border-right: 1px solid black;
+}
+
+.experience {
+    margin-left: 190px;
+}
+
+.experience h4 {
+    color: teal;
+    margin-bottom: 30px;
+}
+
+.experience-details {
+    float: right;
+    position: relative;
+    bottom: 50px;
+    color: gray;
+}
+
+.experience-description {
+    margin-bottom: 35px;
+}
+
+#education {
+    margin-top: 45px;
+    height: 310px;
+
+}
+
+#education h3 {
+    float: left;
+    width: 180px;
+    height: 100%;
+    font-style: italic;
+    border-right: 1px solid black;
+}
+
+#hobbies {
+    margin-top: 45px;
+    height: 90px;
+
+}
+
+#hobbies h3 {
+    float: left;
+    width: 180px;
+    height: 100%;
+    font-style: italic;
+    border-right: 1px solid black;
+}
+
+#hobbies ul {
+    margin-left: 230px;
+}
+
+#contact {
+    position: relative;
+}
+
+#contact h3 {
+    visibility: hidden;
+}
+
+.contact-type {
+    visibility: hidden;
+}
+
+.contact-value {
+    visibility: hidden;
+}
+
+.contact-email {
+    background: url('../images/email.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    left: 195px;
+}
+  
+.contact-phone {
+    background-image: url('../images/phone.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 20px;
+    left: 310px;
+ }
+  
+.contact-github {
+    background-image: url('../images/github.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 20px;
+    left: 425px;
+}
+  
+.contact-facebook {
+    background-image: url('../images/facebook.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 20px;
+    left: 550px;
+    margin-bottom: 60px;
+}
+
+@media (max-width: 1000px) {
+
+#\#wrapper {
+    max-width: 100%;
+    padding: 30px 20px;
+}
+
+#about p {
+    width: 100%;
+    padding-left: 20px;
+    margin-bottom: 150px;
+}
+
+ #competencies {
+    padding-left: 20px;
+    max-width: 100%;
+    min-width: 10%;
+    height: 230px;
+  }
+  
+#competencies h3 {
+    float: left;
+    width: 160px;
+    height: 23px;
+    border-right: none;
+    border-bottom: 1px solid #000;
+    margin-bottom: 25px;
+}
+
+
+.skills {
+    float: left;
+    max-width: 100%;
+    min-width: 10px;
+}
+
+.skill:first-of-type {
+    margin: 0 2px 0 0px;
+}
+  
+.skill {
+    max-width: 100%;
+    max-height: 100%;
+}
+  
+#experiences {
+    padding-left: 20px;
+    
+}
+  
+#experiences h3 {
+    float: left;
+    width: 160px;
+    height: 23px;
+    border-right: none;
+    border-bottom: 1px solid #000;
+    margin-bottom: 25px;
+}
+  
+.experience {
+    margin-left: 0px;
+    float: left;
+}
+  
+.experience-description {
+     float: left;
+}
+
+#education {
+    padding-left: 30px;
+    margin-top: 170px;
+}
+  
+#education h3 {
+    float: left;
+    width: 160px;
+    height: 23px;
+    border-right: none;
+    border-bottom: 1px solid #000;
+    margin-bottom: 25px;
+}
+
+#hobbies {
+    padding-left: 30px;
+    margin-top: 170px;
+}
+  
+#hobbies h3 {
+    float: left;
+    width: 160px;
+    height: 23px;
+    border-right: none;
+    border-bottom: 1px solid #000;
+}
+  
+#hobbies ul {
+    float: left;
+    margin-left: -120px;
+    margin-top: 50px;
+}
+
+.contact-email {
+    max-width: 40px;
+    height: 40px;
+    top: 40px;
+    left: 65px;
+}
+
+ul {
+   position: relative;
+   
+}
+
+.contacts {
+    position: absolute;
+    max-width: 100%;
+}
+.contact-phone {
+    max-width: 40px;
+    height: 40px;
+    top: 38px;
+    left: 145px;
+}
+  
+.contact-github {
+    max-width: 40px;
+    height: 40px;
+    top: 38px;
+    left: 230px;
+}
+  
+.contact-facebook {
+    max-width: 40px;
+    height: 40px;
+    top: 38px;
+    left: 320px;
+}
+  
+}
+
+
