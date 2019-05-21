@@ -9,6 +9,7 @@
 
 #\#wrapper {
     margin: 0px;
+
 }
 
 /* End of Header */
@@ -31,8 +32,6 @@ header {
 .left-header p {
     max-width: 90%;
     margin-top: 20px;
-    
-    float: left;
 }
 
 .mid-header {
@@ -97,7 +96,7 @@ figure img {
 }
 
 .left {
-    background: ;
+   
     width: 55%;
     margin: 30px 10px 30px 60px;
   
@@ -174,42 +173,143 @@ h5 {
     padding: 5px;
  
 }
+
 .y {
     list-style: none;
-}
-.y .eng::after {
-    display: inline-block;
-    width: 100%;
-    content:  '\25CF' '\25CF' '\25CF' '\25CF' '\25CF';
-    font-size: 30px;
-    color: teal;
-}
-
-.y .arb::after {
-    display: inline-block;
-    width: 100%;
-    content:  '\25CF' '\25CF' '\25CF' '\25CF' '\25CF';
-    font-size: 30px;
-    color: teal;
-    
-}
-
-.y .spa::after {
-    display: inline-block;
-    width: 100%;
-    content:  '\25CF' '\25CF';
-    font-size: 30px;
-    color: teal;
 }
 
 .tool {
     color: black;
     display: inline-block;
-    max-width: 100%;
+    max-width: 100%5;
     max-height: 100%;
     border: 2px solid teal;
     border-radius: 5px;
     margin-bottom: 10px;
     padding: 5px;
+ 
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    background-color: teal;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 5px 5px;
+}
+
+.dot1 {
+    height: 15px;
+    width: 15px;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    border: 2px solid teal;
+    margin: 5px 5px;
+}
+
+/* End of content */
+
+/* Beginning of media query*/
+
+@media (max-width: 450px) {
+
+#\#wrapper {
+    margin: 15px auto;
+    width: 90vw;
+    
+}
+    
+header {
+    max-width: 100%;
+}
+
+.left-header {
+    width: 100%;
+    margin-left: 0;
+    
+}
+
+
+.right-header{
+    
+    width: 100%;
+    
+}
+
+.mid-header {
+    width: 0%;
+   
+}
+
+.header1 {
+    flex-direction: column;
+}
+
+h1 {
+   
+    font-size: 24px;
+    margin-bottom: 10px;
+    
+}
+
+h2 {
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.left-header h2 {
+    width: 50%;
+}
+
+figure {
+    position: relative;
+    bottom: 290px;
+    left: 220px;
+}
+
+figure img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 90px;
+    height: 90px;   
+    
+}
+
+.left-header p {
+    max-width: 100%;
+    margin-top: 20px;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+#contact {
+    padding: 10px 50px;
+    margin-top: -50px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+.left {
+    margin: 0;
+    width: 100%;
+
+}
+
+.right {
+    margin: 0;
+    width: 100%;    
+}
+
+.work h2 {
+    margin-top: 20px;
+}
+ .skills h2 {
+     margin-top: 20px;
+ }
  
 }
