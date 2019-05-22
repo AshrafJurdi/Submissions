@@ -6,6 +6,6 @@ var c= b*50;
 var d= c-birth;
 var e= d+1766;
 
-alert("Result: "+ e);
+alert("Result: " + e);
 
 
