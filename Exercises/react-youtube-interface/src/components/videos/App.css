@@ -1,0 +1,72 @@
+
+
+
+.video_container{
+
+   margin: 1%;
+ display: flex;
+ 
+ 
+
+
+}
+.main_video{
+    align-items: baseline;
+    width: 70%;
+}
+.list_video{
+   
+    
+ width: 29%;
+ margin: 0 3px 0 3px;
+
+}
+iframe{
+ height: 440px;
+ width: 97%;
+
+
+}
+.field{
+    padding-bottom: 20px;
+    border-bottom: 2px solid lightgray;
+
+
+
+
+}
+input{
+    margin-left: 20%;
+    width: 40%;
+    
+}
+.noorimage {
+    width: 168px;
+    height: 94px;
+    margin: 2px 1px;
+}
+
+.logo {
+    width: 60px;
+
+    
+}
+
+.icons {
+    width: 20px;
+    padding: 15px;
+    
+}
+
+.iconss{
+    float: right;
+    margin-right: 10px;
+}
+
+
+
+.searchButton {
+    width: 60px;
+    height: 32px;
+    
+}
