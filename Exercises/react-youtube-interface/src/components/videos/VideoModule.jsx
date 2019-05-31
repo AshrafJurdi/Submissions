@@ -12,6 +12,7 @@ class VideoModule extends Component {
             <VideoDetail selectedVideo={this.props.appState.selectedVideo} />
           </div>
           <div className="list_video">
+            <h3>Up Next</h3>
             <VideosList videos={this.props.appState.videos} onVideoSelect={this.props.onVideoSelect} />
           </div>
         </div>

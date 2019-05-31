@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import youtube from "../api/youtube.js";
+
 import SearchBar from "./SearchBar";
 import VideoModule from "./videos/VideoModule";
 
@@ -13,7 +14,7 @@ class App extends Component {
 
   //* Set default search term
   componentDidMount() {
-    this.onTermSubmit("dogs ");
+    this.onTermSubmit("dogs");
   }
 
   //* User enters a search term
@@ -23,13 +24,17 @@ class App extends Component {
         q: term,
       },
     });
+  
+  
 
     this.setState({
       videos: response.data.items,
       selectedVideo: response.data.items[0],
+      
     });
   };
 
+ 
   //[(Callback)] User selected video
   onVideoSelect = video => {
     this.setState({
@@ -46,5 +51,6 @@ class App extends Component {
     );
   }
 }
+
 
 export default App;

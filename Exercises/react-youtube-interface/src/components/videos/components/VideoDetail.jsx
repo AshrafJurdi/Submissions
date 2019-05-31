@@ -7,7 +7,7 @@ const VideoDetail = ({ selectedVideo }) => {
 
   const videoSrc = `https://www.youtube.com/embed/${selectedVideo.id.videoId}`;
 
-  const { description, title } = selectedVideo.snippet;
+  const { description, title} = selectedVideo.snippet;
 
   return (
     <div>

@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import "../styles/SearchBar.scss";
-import youtube from '../assets/youtube.png'
-import camera from '../assets/camera.jpg'
-import grid from '../assets/grid.png'
-import conv from '../assets/conv.png'
-import bell from '../assets/bell.png'
+import youtube from '../assets/youtube.png';
+import camera from '../assets/camera.jpg';
+import grid from '../assets/grid.png';
+import conv from '../assets/conv.png';
+import bell from '../assets/bell.png';
+
 
 
 class SearchBar extends Component {
   state = { term: "" };
-
+  
+  
   //* User hits enter on search
   onFormSubmit = event => {
     event.preventDefault();
@@ -17,12 +19,18 @@ class SearchBar extends Component {
     this.props.onTermSubmit(this.state.term);
   };
 
+  
   //* Set the value of search bar
   onInputChange = event => {
     this.setState({
       term: event.target.value,
+
     });
   };
+
+  
+  
+   
 
   render() {
     return (
