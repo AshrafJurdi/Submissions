@@ -1,0 +1,165 @@
+Basic Queries
+
+Problem1:
+
+SELECT NAME from students
+
+"1""Alex"
+"2""Basma"
+"3""Hasan"
+"4""Jana"
+"5""Layal"
+"6""Robert"
+
+Problem 2:
+
+SELECT * FROM students WHERE Age >30;
+
+"5""Robert""34""M""500"
+"6""Jana""33""F""500"
+
+Problem 3:
+
+SELECT Name FROM students WHERE Gender= 'F' AND Age= 30
+
+No Result
+
+Problem 4:
+
+SELECT Points FROM students WHERE Name= 'Alex' 
+
+"200"
+
+Problem 5:
+
+INSERT INTO students VALUES ('7', 'Ashraf', '25', 'M', '100');
+
+"7""Ashraf""25""M""100"
+
+Problem 6:
+
+UPDATE students
+SET Points= Points+100
+WHERE ID=2;
+
+"2""Basma""25""F""400"
+
+Problem 7:
+
+UPDATE students
+SET Points= Points-100
+WHERE ID=1;
+
+"1""Alex""21""M"""100"
+
+
+Creating Table
+
+Problem 1:
+
+INSERT INTO graduates (ID, Name, Age, Gender, Points)
+SELECT ID, Name, Age, Gender, Points FROM students
+WHERE Name='Layal';
+
+"4""Layal""18""F""350"
+
+
+Problem 2:
+
+UPDATE graduates
+SET Graduation='08/09/2018'
+WHERE Name='Layal';
+
+"4""Layal""18""F""350""08/09/2018"
+
+Problem 3:
+
+ DELETE FROM students WHERE Name='Layal'; 
+ 
+'1', 'Alex', '21', 'M', '100'
+'2', 'Basma', '25', 'F', '500'
+'3', 'Hasan', '30', 'M', '150'
+'5', 'Robert', '34', 'M', '500'
+'6', 'Jana', '33', 'F', '500'
+'7', 'Ashraf', '25', 'M', '100'
+
+
+Joins
+
+Problem 11
+SELECT employees.ID, employees.Name, employees.Company, Companies.Date
+FROM employees
+INNER JOIN companies ON employees.Company = companies.Name; 
+
+'1', 'Marc', 'Google', '1998'
+'2', 'Maria', 'Google', '1998'
+'3', 'Alaa', 'Facebook', '2004'
+'4', 'Hala', 'Snapchat', '2011'
+
+Problem 12:
+
+SELECT employees.ID, employees.Name, employees.Company, Companies.Date
+FROM employees
+INNER JOIN companies ON employees.Company = companies.Name
+where companies.date < 2000 
+
+'1', 'Marc', 'Google', '1998')
+'2', 'Maria', 'Google', '1998')
+
+Problem 13:
+
+SELECT employees.Company
+FROM employees
+INNER JOIN companies ON employees.Company = companies.Name
+where role = 'Graphic Designer'
+
+INSERT INTO "main"."" ("Company") VALUES ('Snapchat');
+
+
+Count & Filter
+
+Problem 14:
+
+SELECT name from students
+where Points = (SELECT MAX(Points) AS HighestPoints
+FROM students ); 
+
+INSERT INTO "main"."" ("Name") VALUES ('Ashraf');
+
+Problem 15:
+
+SELECT AVG(Points)
+FROM students;
+
+INSERT INTO "main"."" ("AVG(Points)") VALUES ('425.0');
+
+Problem 16:
+
+SELECT COUNT(Name)
+FROM students
+WHERE points = 500;
+
+INSERT INTO "main"."" ("COUNT(Name)") VALUES ('3');
+
+Problem 17:
+
+SELECT Name FROM students
+WHERE Name LIKE '%s%';
+
+INSERT INTO "main"."" ("Name") VALUES ('Ashraf');
+INSERT INTO "main"."" ("Name") VALUES ('Basma');
+INSERT INTO "main"."" ("Name") VALUES ('Hasan');
+
+Problem 18:
+
+SELECT *
+FROM students
+GROUP BY Name
+ORDER BY SUM(Points) DESC; 
+
+INSERT INTO "main"."" ("ID", "Name", "Age", "Gender", "Points") VALUES ('7', 'Ashraf', '25', 'M', '800');
+INSERT INTO "main"."" ("ID", "Name", "Age", "Gender", "Points") VALUES ('2', 'Basma', '25', 'F', '500');
+INSERT INTO "main"."" ("ID", "Name", "Age", "Gender", "Points") VALUES ('6', 'Jana', '33', 'F', '500');
+INSERT INTO "main"."" ("ID", "Name", "Age", "Gender", "Points") VALUES ('5', 'Robert', '34', 'M', '500');
+INSERT INTO "main"."" ("ID", "Name", "Age", "Gender", "Points") VALUES ('3', 'Hasan', '30', 'M', '150');
+INSERT INTO "main"."" ("ID", "Name", "Age", "Gender", "Points") VALUES ('1', 'Alex', '21', 'M', '100');
