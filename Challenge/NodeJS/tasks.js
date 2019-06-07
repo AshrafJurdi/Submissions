@@ -82,7 +82,7 @@ function quit(){
 }
 
 /**
- * help command that lists all possible commands
+ * help command that lists all possible commands that you can type
  */
 function help(){
   console.log('Bellow are the possible commands: \n', '\n', 'quit\n','hello\n','help\n')
