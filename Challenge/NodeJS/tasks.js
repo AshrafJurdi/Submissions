@@ -42,7 +42,7 @@ function onDataReceived(text) {
     hello(text);
     
   }
-  else if(text === 'help\n'){
+  else if(text.slice(0, 4) === 'help'){
     help();
   }
   else{
