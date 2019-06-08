@@ -66,12 +66,11 @@ function unknownCommand(c){
 /**
  * Says hello
  *
- * @param  {string} c the text received
  * @returns {void}
  */
 
-function hello(c){
-  console.log( c.trim()+'!')
+function hello(text){
+  console.log(text.trim(text.split(" ", 1) +text.slice(5))+'!')
 }
 
 
