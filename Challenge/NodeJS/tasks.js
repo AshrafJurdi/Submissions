@@ -134,7 +134,10 @@ function add(text){
 function remove(text){
  if (text.slice(7) === ""){
     tasks.pop();
- } else {
+ } else if (text.slice(7)-1 >tasks.length){
+   console.log("  This task number does not exist!")
+ }
+ else {
    tasks.splice(text.slice(7)-1, 1)
  } 
 }
