@@ -78,7 +78,7 @@ function unknownCommand(c){
  * @returns {void}
  */
 
-function hello(text){tasks = ["come", "go", "know", "flow"];
+function hello(text){
   console.log(text.trim(text.split(" ", 1) +text.slice(5))+'!')
 }
 
@@ -97,11 +97,11 @@ function quit(){
  * help command that lists all possible commands that you can type
  */
 function help(){
-  console.log('Bellow are the possible commands: \n', '\n', 'quit\n','hello\n','help\n')
+  console.log('Bellow are the possible commands: \n', '\n', 'quit\n','hello\n','help\n', 'list\n', 'add\n', 'remove\n')
 }
 
 /**
- * 
+ * lists all the tasks on new line numbered
  * 
  */
 function list(){
@@ -115,7 +115,8 @@ function list(){
 
 /**
  * 
- * 
+ * add new task to the list.
+ * if you type add without anything it will return Error
  */
 function add(text){
   if (text.slice(5) != ""){
@@ -125,6 +126,11 @@ function add(text){
   }
 }
 
+/**
+ * 
+ * if you type remove alone it will remove the last task in the list.
+ * if you type remove followed by the number of the task then it will remove this task
+ */
 function remove(text){
  if (text.slice(7) === ""){
     tasks.pop();
