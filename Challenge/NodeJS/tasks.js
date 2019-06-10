@@ -51,6 +51,9 @@ function onDataReceived(text) {
   else if(text.slice(0, 4) === 'help'){
     help();
   }
+  else if (text.slice(0, 6) === 'remove'){
+    remove(text);
+  }
   else{
     unknownCommand(text);
   }
@@ -120,6 +123,14 @@ function add(text){
   } else {
     console.log("Error")
   }
+}
+
+function remove(text){
+ if (text.slice(7) === ""){
+    tasks.pop();
+ } else {
+   tasks.splice(text.slice(7)-1, 1)
+ } 
 }
 // The following line starts the application
 startApp("Ashraf El Jurdi")
