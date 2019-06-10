@@ -40,7 +40,9 @@ function onDataReceived(text) {
   }
   else if(text.slice(0, 5) === 'hello'){
     hello(text);
-    
+  }
+  else if (text === 'list\n'){
+    list();
   }
   else if(text.slice(0, 4) === 'help'){
     help();
@@ -91,5 +93,17 @@ function help(){
   console.log('Bellow are the possible commands: \n', '\n', 'quit\n','hello\n','help\n')
 }
 
+/**
+ * 
+ * 
+ */
+function list(){
+  
+  tasks = ["come", "go", "know", "flow"];
+  for (i=0; i<tasks.length; i++){
+    console.log((i+1) + "." + tasks[i])
+  }
+
+}
 // The following line starts the application
 startApp("Ashraf El Jurdi")
