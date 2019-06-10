@@ -36,23 +36,29 @@ function startApp(name){
  */
 
 function onDataReceived(text) {
-  if (text === 'quit\n' || text === 'exit\n') {
+  text= text.replace('\n','').trim();
+  var arrText = text.split(' ');
+  console.log(arrText);
+  if (arrText[0] === 'quit' || arrText[0] === 'exit') {
     quit();
   }
-  else if(text.slice(0, 5) === 'hello'){
-    hello(text);
+  else if(arrText[0] === 'hello'){
+    hello(arrText[1]);
   }
-  else if (text === 'list\n'){
+  else if (arrText[0] === 'list'){
     list();
   }
-  else if (text.slice(0, 3) === 'add'){
-    add(text);
+  else if (arrText[0] === 'add'){
+    add(arrText);
   }
-  else if(text.slice(0, 4) === 'help'){
+  else if(arrText[0] === 'help'){
     help();
   }
-  else if (text.slice(0, 6) === 'remove'){
-    remove(text);
+  else if (arrText[0]=== 'remove'){
+    remove(arrText);
+  }
+  else if (arrText[0] === 'edit'){
+    edit(arrText);
   }
   else{
     unknownCommand(text);
@@ -79,9 +85,12 @@ function unknownCommand(c){
  */
 
 function hello(text){
-  console.log(text.trim(text.split(" ", 1) +text.slice(5))+'!')
+  if (!text){
+  console.log('hello!')}
+  else{
+  console.log("hello" + " " +text+'!')
 }
-
+}
 
 /**
  * Exits the application
@@ -97,7 +106,7 @@ function quit(){
  * help command that lists all possible commands that you can type
  */
 function help(){
-  console.log('Bellow are the possible commands: \n', '\n', 'quit\n','hello\n','help\n', 'list\n', 'add\n', 'remove\n')
+  console.log('Bellow are the possible commands: \n', '\n', 'quit\n','hello\n','help\n', 'list\n', 'add\n', 'remove\n', 'edit\n')
 }
 
 /**
@@ -105,22 +114,20 @@ function help(){
  * 
  */
 function list(){
-  
-  
   for (i=0; i<tasks.length; i++){
-    console.log((i+1) + "." + tasks[i])
+    console.log(((i+1) + "." + tasks[i]).trim())
   }
-
 }
+
 
 /**
  * 
  * add new task to the list.
  * if you type add without anything it will return Error
  */
-function add(text){
-  if (text.slice(5) != ""){
-  tasks.push(text.slice(4))
+function add(arrText){
+  if (arrText[1] != undefined){
+  tasks.push(arrText[1])
   } else {
     console.log("Error")
   }
@@ -131,15 +138,34 @@ function add(text){
  * if you type remove alone it will remove the last task in the list.
  * if you type remove followed by the number of the task then it will remove this task
  */
-function remove(text){
- if (text.slice(7) === ""){
+function remove(arrText){
+ if (arrText[1] === undefined){
     tasks.pop();
- } else if (text.slice(7)-1 >tasks.length){
+ } else if (arrText[1]-1 >tasks.length){
    console.log("  This task number does not exist!")
  }
  else {
-   tasks.splice(text.slice(7)-1, 1)
+   tasks.splice(arrText[1]-1, 1)
  } 
+}
+
+/**
+ * if you type edit alone it will return Error
+ * if you type edit followed by anything it will edit last task in list to the string you typed after edit
+ * if you type edit followed by number then string it will replace the string in the task number to the string you typed
+ */
+function edit(arrText){
+  
+  if (arrText[1] === undefined){
+    console.log("Error")
+ 
+  } else if (arrText[1]-1 < tasks.length){
+    tasks.splice(arrText[1]-1, 1, arrText.slice(2).join(" "))
+
+  } else {
+    tasks.splice(-1, 1, arrText.slice(1).join(" "))
+  }
+  
 }
 // The following line starts the application
 startApp("Ashraf El Jurdi")
