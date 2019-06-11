@@ -1,3 +1,31 @@
+const fs = require('fs');
+// save the path form the command line
+var thePath;
+if(process.argv[2]){
+  thePath = process.argv[2];
+}else{
+  thePath = 'database.json';
+}
+
+//  save data on exit or quit.
+const dataSave = (data, thePath) => {
+  try {
+    fs.writeFileSync(thePath, JSON.stringify(data))
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+//  load data from  database.json
+const loadData = (thePath) => {
+  try {
+    return fs.readFileSync(thePath, 'utf8')
+  } catch (error) {
+    console.error(error)
+    return false
+  }
+}
+
 
 /**
  * Starts the application
@@ -11,6 +39,12 @@
  */
 var tasks = [{"task": "come", "done": false}, {"task": "go", "done": false}, {"task": "know", "done": true}, {"task": "flow", "done": true}];
 function startApp(name){
+  if(!fs.existsSync(thePath)){
+    dataSave(tasks, thePath);
+    }
+
+  // load data from the file when statrting the app
+  tasks = JSON.parse(loadData(thePath));
   process.stdin.resume();
   process.stdin.setEncoding('utf8');
   process.stdin.on('data', onDataReceived);
@@ -104,6 +138,7 @@ function hello(text){
  * @returns {void}
  */
 function quit(){
+  dataSave(tasks, thePath);
   console.log('Quitting now, goodbye!')
   process.exit();
 }
