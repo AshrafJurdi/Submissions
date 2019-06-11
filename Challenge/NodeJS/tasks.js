@@ -112,7 +112,7 @@ function quit(){
  * help command that lists all possible commands that you can type
  */
 function help(){
-  console.log('Bellow are the possible commands: \n', '\n', 'quit\n','hello\n','help\n', 'list\n', 'add\n', 'remove\n', 'edit\n')
+  console.log('Bellow are the possible commands: \n', '\n', 'quit\n','hello\n','help\n', 'list\n', 'add\n', 'remove\n', 'edit\n', 'check\n', 'uncheck\n')
 }
 
 /**
@@ -181,7 +181,7 @@ function edit(arrText){
 }
 
 /**
- * 
+ * added two functions which check and uncheck the box before each task
  * 
  */
 function check(arrText){
