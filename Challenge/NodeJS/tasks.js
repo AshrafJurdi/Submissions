@@ -9,7 +9,7 @@
  * @param  {string} name the name of the app
  * @returns {void}
  */
-var tasks = ["come", "go", "know", "flow"];
+var tasks = [{"task": "come", "done": false}, {"task": "go", "done": false}, {"task": "know", "done": true}, {"task": "flow", "done": true}];
 function startApp(name){
   process.stdin.resume();
   process.stdin.setEncoding('utf8');
@@ -60,6 +60,7 @@ function onDataReceived(text) {
   else if (arrText[0] === 'edit'){
     edit(arrText);
   }
+  
   else{
     unknownCommand(text);
   }
@@ -115,7 +116,13 @@ function help(){
  */
 function list(){
   for (i=0; i<tasks.length; i++){
-    console.log(((i+1) + "." + tasks[i]).trim())
+    if(tasks[i].done == true){
+      console.log(("[✓]"+(i+1) + "." + tasks[i].task).trim())
+      }else{
+       
+        console.log(("[]"+(i+1) + "." + tasks[i].task).trim())
+      }
+    
   }
 }
 
@@ -127,7 +134,7 @@ function list(){
  */
 function add(arrText){
   if (arrText[1] != undefined){
-  tasks.push(arrText[1])
+  tasks.push({task:arrText[1], done: false})
   } else {
     console.log("Error")
   }
@@ -167,5 +174,8 @@ function edit(arrText){
   }
   
 }
+
+
+
 // The following line starts the application
 startApp("Ashraf El Jurdi")
