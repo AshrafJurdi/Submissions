@@ -43,10 +43,10 @@ app.get('/movies/create', (req, res) => {
    if (Rating !== ""){
     ratingB= Rating
         }else{
-    ratingB="4"
+    ratingB= 4
     }
     if (req.query.title !== "" && Year.length === 4 && Year !== NaN  ){
-        movies.push({title: req.query.title, year: Year, rating:ratingB})
+        movies.push({title: req.query.title, year: parseInt(Year), rating:parseInt(ratingB)})
         res.send({status:200, data: movies })
         } else{
         res.send({status:403, error:true, message:'you cannot create a movie without providing a title and a year'})}
