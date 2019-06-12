@@ -80,6 +80,13 @@ app.get('/movies/read/id/:ID?', (req, res) => {
     
 app.get('/movies/update', (req, res) => res.send({}))
 
-app.get('/movies/delete', (req, res) => res.send({}))
+app.get('/movies/delete/:ID?', (req, res) => {
+    if (req.params.ID !== undefined &&  req.params.ID < movies.length){
+        movies.splice(req.params.ID, 1)
+        res.send({status:200, data: movies })
+    }else{
+        res.send({status:404, error:true, message:'the movie <ID> does not exist'})
+    }
+    })
 
     
