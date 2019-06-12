@@ -78,7 +78,27 @@ app.get('/movies/read/id/:ID?', (req, res) => {
         res.send("Please enter movie ID")
     }})
     
-app.get('/movies/update', (req, res) => res.send({}))
+app.get('/movies/update/:ID?', (req, res) => {
+    
+    function updated(a, b){
+        if (a !== undefined || a===""){
+            movies[req.params.ID][b] = a
+            
+        }
+    }
+    if (req.params.ID < movies.length){  
+    updated(req.query.title,"title");
+    updated(parseInt(req.query.rating),"rating");
+    updated(parseInt(req.query.year),"year");
+    res.send({status:200, data: movies })
+}
+    // if (req.params.ID < movies.length && req.query.title !== "" && req.query.title){
+    //        movies[req.params.ID].title = req.query.title
+    //     res.send({status:200, data: movies })
+    // } else (
+        
+    // )
+})
 
 app.get('/movies/delete/:ID?', (req, res) => {
     if (req.params.ID !== undefined &&  req.params.ID < movies.length){
