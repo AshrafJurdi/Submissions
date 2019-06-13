@@ -1,14 +1,33 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require('express');
+const mongoose = require('mongoose');
+
+const app = express();
+const port = 3000;
+
+const url = 'mongodb+srv://CMDB:samar@cluster0-t6agm.mongodb.net/test?retryWrites=true&w=majority';
+
+mongoose.Promise = global.Promise;
+mongoose.connect(url,{ useNewUrlParser: true });
+
 const today = new Date(); 
 const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+const articleSchema = new mongoose.Schema({
+    title: String,
+    rating: Number,
+    year: Number
+    });
+ 
+const movieCollection = mongoose.model("CMDB", articleSchema);
+
+
+
+
 const movies = [
     { title: 'Jaws', year: 1975, rating: 8 },
     { title: 'Avatar', year: 2009, rating: 7.8 },
-    { title: 'Brazil', year: 1985, rating: 8 },
+    { title: 'Brazil', year:    1985, rating: 8 },
     { title: 'الإرهاب والكباب‎', year: 1992, rating: 6.2 }
-]
+];
 
 
 app.get('/', (req, res) => res.send('ok'))
@@ -46,67 +65,189 @@ app.get('/movies/create', (req, res) => {
     ratingB= 4
     }
     if (req.query.title !== "" && Year.length === 4 && Year !== NaN  ){
-        movies.push({title: req.query.title, year: parseInt(Year), rating:parseInt(ratingB)})
-        res.send({status:200, data: movies })
+        var movie = new movieCollection({title: req.query.title, year: parseInt(Year), rating:parseInt(ratingB)});
+        movie.save().then((data)=> {
+           // console.log(data);
+           res.send({status:200, data: data })
+           })
+          .catch((err)=> {
+            console.log(err);
+            res.send({status:403, error:true, message:'you cannot create a movie without providing a title and a year'})
+          })
+       // movies.push({title: req.query.title, year: parseInt(Year), rating:parseInt(ratingB)})
+        /* res.send({status:200, data: movies })
         } else{
-        res.send({status:403, error:true, message:'you cannot create a movie without providing a title and a year'})}
+        res.send({status:403, error:true, message:'you cannot create a movie without providing a title and a year'})} */
 
         
-    })
-
-app.get('/movies/read', (req, res) => res.send({status:200, data: movies }))
-
-app.get('/movies/read/by-date', (req, res) => res.send({status:200, data: movies.sort((a, b) => (b.year - a.year))}))
-
-app.get('/movies/read/by-rating', (req, res) => res.send({status:200, data: movies.sort((a, b) => (b.rating - a.rating))}))
-
-app.get('/movies/read/by-title', (req, res) => res.send({status:200, data: movies.sort(function(a, b){
-    const x = a.title.toLowerCase();
-    const y = b.title.toLowerCase();
-    if (x < y) {return -1;}
-    if (x > y) {return 1;}
-    return 0;
-})}))
-
-app.get('/movies/read/id/:ID?', (req, res) => {
-    if (req.params.ID > movies.length-1){
-        res.send({status:404, error:true, message:'the movie <ID> does not exist'})
-    }
-    else if (req.params.ID !== undefined){
-    res.send({status:200, data: movies[req.params.ID] })
-    } else {
-        res.send("Please enter movie ID")
     }})
-    
-app.get('/movies/update/:ID?', (req, res) => {
-    
-    function updated(a, b){
-        if (a !== undefined || a===""){
-            movies[req.params.ID][b] = a
-            
-        }
-    }
-    if (req.params.ID < movies.length){  
-    updated(req.query.title,"title");
-    updated(parseInt(req.query.rating),"rating");
-    updated(parseInt(req.query.year),"year");
-    res.send({status:200, data: movies })
-}
-    // if (req.params.ID < movies.length && req.query.title !== "" && req.query.title){
-    //        movies[req.params.ID].title = req.query.title
-    //     res.send({status:200, data: movies })
-    // } else (
-        
-    // )
+
+app.get('/movies/read', (req, res) => {
+    var User= movieCollection;
+    User.find({})
+    .then((data)=>{
+        res.send({status:200, data: data })
+    })
+    .catch((err)=>{
+    console.log(err);
+    })})
+
+app.get('/movies/read/by-date', (req, res) => {
+    var User= movieCollection;
+    User.find({}).sort({year:1})
+    .then((data)=>{
+        res.send({status:200, data: data })
+     })
+    .catch((err)=>{
+      console.log(err);
+    })})
+
+// res.send({status:200, data: movies.sort((a, b) => (b.year - a.year))}))
+
+app.get('/movies/read/by-rating', (req, res) => {
+    var User= movieCollection;
+    User.find({}).sort({rating:-1})
+    .then((data)=>{
+        res.send({status:200, data: data })
+     })
+    .catch((err)=>{
+      console.log(err);
+    })})
+
+
+
+// res.send({status:200, data: movies.sort((a, b) => (b.rating - a.rating))}))
+
+app.get('/movies/read/by-title', (req, res) => {
+    var User= movieCollection;
+    User.find({}).sort({title:1})
+    .then((data)=>{
+        res.send({status:200, data: data })
+     })
+    .catch((err)=>{
+      console.log(err);
+    })
 })
 
-app.get('/movies/delete/:ID?', (req, res) => {
-    if (req.params.ID !== undefined &&  req.params.ID < movies.length){
-        movies.splice(req.params.ID, 1)
-        res.send({status:200, data: movies })
-    }else{
-        res.send({status:404, error:true, message:'the movie <ID> does not exist'})
-    }
+// res.send({status:200, data: movies.sort(function(a, b){
+//     const x = a.title.toLowerCase();
+//     const y = b.title.toLowerCase();
+//     if (x < y) {return -1;}
+//     if (x > y) {return 1;}
+//     return 0;
+// })}))
+
+app.get('/movies/read/id/:ID?', (req, res) => {
+    
+    var User= movieCollection;
+    User.findById(req.params.ID)
+    .then((data)=>{
+        res.send({status:200, data: data })
     })
+    .catch((err)=>{ 
+    console.log(err);
+    })
+    
+    // if (req.params.ID > movies.length-1){
+    //     res.send({status:404, error:true, message:'the movie <ID> does not exist'})
+    // }
+    // else if (req.params.ID !== undefined){
+    // res.send({status:200, data: movies[req.params.ID] })
+    // } else {
+    //     res.send("Please enter movie ID")
+    // }
+})
+    
+app.get('/movies/update/:ID?', (req, res) => {
+    var User = movieCollection;
+    if (req.params.ID){
+    if(mongoose.Types.ObjectId.isValid(req.params.ID) && req.query.title) {
+        User.findByIdAndUpdate(req.params.ID,{$set:{title:req.query.title}},{multi:true, new:true})       
+        .then((docs)=>{
+           if(docs) {
+             
+            resolve({success:true,data:docs});
+           } else {
+             reject({success:false,data:"no such user exist"});
+           }
+        }).catch((err)=>{
+            reject(err);
+        })
+        }
+        if(mongoose.Types.ObjectId.isValid(req.params.ID) && req.query.year) {
+            User.findByIdAndUpdate(req.params.ID,{$set:{year:req.query.year}},{multi:true, new:true})       
+            .then((data)=>{
+               if(data) {
+                 
+                resolve({success:true,data:docs});
+               } else {
+                 reject({success:false,data:"no such user exist"});
+               }
+            }).catch((err)=>{
+                reject(err);
+            })}
+            if(mongoose.Types.ObjectId.isValid(req.params.ID) && req.query.rating) {
+                User.findByIdAndUpdate(req.params.ID,{$set:{rating:req.query.rating}},{multi:true, new:true})       
+                .then((data)=>{
+                   if(data) {
+                     
+                    resolve({success:true,data:docs});
+                   } else {
+                     reject({success:false,data:"no such user exist"});
+                   }
+                }).catch((err)=>{
+                    reject(err);
+                })} 
+                if (req.params.ID){var User= movieCollection;
+                User.find({})
+                .then((data)=>{
+                    res.send({status:200, data: data })
+                })
+                .catch((err)=>{
+                console.log(err);
+                })}
+                // else {
+        //   reject({success:"false",data:"provide correct key"});
+        // }
+        
+//     function updated(a, b){
+//         if (a !== undefined || a===""){
+//             movies[req.params.ID][b] = a
+            
+//         }
+//     }
+//     if (req.params.ID < movies.length){  
+//     updated(req.query.title,"title");
+//     updated(parseInt(req.query.rating),"rating");
+//     updated(parseInt(req.query.year),"year");
+//     res.send({status:200, data: movies })
+// }
+
+}})
+
+app.get('/movies/delete/:ID?', (req, res) => {
+    var User = movieCollection;
+    if(mongoose.Types.ObjectId.isValid(req.params.ID)) {
+        User.findOneAndRemove({_id: req.params.ID})
+          .then((docs)=>{
+             if(docs) {
+                resolve({"success":true,data:docs});
+             } else {
+                reject({"success":false,data:"no such user exist"});
+             }
+        }).catch((err)=>{
+            reject(err);
+        })
+      } else {
+          reject({"success":false,data:"please provide correct Id"});
+      }
+    
+    // if (req.params.ID !== undefined &&  req.params.ID < movies.length){
+    //     movies.splice(req.params.ID, 1)
+    //     res.send({status:200, data: movies })
+    // }else{
+    //     res.send({status:404, error:true, message:'the movie <ID> does not exist'})
+    // }
+})
 
     
