@@ -160,13 +160,13 @@ app.get('/movies/read/id/:ID?', (req, res) => {
     
 app.get('/movies/update/:ID?', (req, res) => {
     var User = movieCollection;
-    if (req.params.ID){
+    if (mongoose.Types.ObjectId.isValid(req.params.ID)){
     if(mongoose.Types.ObjectId.isValid(req.params.ID) && req.query.title) {
         User.findByIdAndUpdate(req.params.ID,{$set:{title:req.query.title}},{multi:true, new:true})       
         .then((docs)=>{
            if(docs) {
              
-            resolve({success:true,data:docs});
+            //resolve({success:true,data:docs});
            } else {
              reject({success:false,data:"no such user exist"});
            }
@@ -179,7 +179,7 @@ app.get('/movies/update/:ID?', (req, res) => {
             .then((data)=>{
                if(data) {
                  
-                resolve({success:true,data:docs});
+                //resolve({success:true,data:docs});
                } else {
                  reject({success:false,data:"no such user exist"});
                }
@@ -191,14 +191,15 @@ app.get('/movies/update/:ID?', (req, res) => {
                 .then((data)=>{
                    if(data) {
                      
-                    resolve({success:true,data:docs});
+                   // resolve({success:true,data:docs});
                    } else {
                      reject({success:false,data:"no such user exist"});
                    }
                 }).catch((err)=>{
                     reject(err);
                 })} 
-                if (req.params.ID){var User= movieCollection;
+                if (mongoose.Types.ObjectId.isValid(req.params.ID)){
+                    var User= movieCollection;
                 User.find({})
                 .then((data)=>{
                     res.send({status:200, data: data })
@@ -223,6 +224,9 @@ app.get('/movies/update/:ID?', (req, res) => {
 //     res.send({status:200, data: movies })
 // }
 
+}
+else{
+    res.send({status:404, error:true, message:'the movie <ID> does not exist'})
 }})
 
 app.get('/movies/delete/:ID?', (req, res) => {
