@@ -1,0 +1,371 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#\#wrapper {
+    margin: 0px;
+
+}
+
+/* End of Header */
+
+header {
+    width: 100%;
+    border-bottom: 2px solid teal;
+
+}
+
+.header1 {
+    display: flex;
+}
+
+.left-header {
+    margin: 0 0 20px 100px;
+    width: 40%;
+}
+
+.left-header p {
+    max-width: 90%;
+    margin-top: 20px;
+}
+
+.mid-header {
+    width: 20%;
+    
+}
+
+.right-header {
+    width: 40%;
+    
+}
+
+h1 {
+    color: darkslategrey;
+    font-size: 39px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: teal;
+    margin-bottom: 10px;
+}
+
+figure {
+    padding: 20px;    
+}
+
+figure img {
+    width: 150px;
+    border: 5px solid teal;
+    border-radius: 50%;
+}
+
+#contact {
+    padding-top: 10%;
+    padding-right: 5%;
+    float: right;
+}
+
+.contacts a {
+    text-decoration: none;
+    color: black;
+}
+
+.contact-value {
+    float: right;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    
+}
+
+.contact-value i {
+    margin-left: 15px;
+}
+
+/* End of Header */
+
+/* Beginning of content */
+
+.content {
+    display: flex;
+}
+
+.left {
+   
+    width: 55%;
+    margin: 30px 10px 30px 60px;
+  
+}
+
+.right {
+    
+    width: 45%;
+    margin: 30px 30px 30px 50px;
+}
+
+.city {
+    float: right;
+   
+}
+
+ul {
+    margin-bottom: 30px;
+}
+
+h5 {
+    color: rgb(12, 153, 153);
+    font-style: italic;
+}
+
+.company {
+    font-weight: normal;
+}
+
+.date {
+    margin-bottom: 5px;
+}
+
+.list {
+    padding-left: 15px;
+}
+
+
+.competencies {
+    color: white;
+    display: inline-block;
+    max-width: 100%;
+    max-height: 100%;
+    border: 2px solid teal;
+    border-radius: 11px;
+    background-color: teal; 
+    margin-bottom: 10px;
+    padding: 5px;
+ 
+}
+
+.interest {
+    color: white;
+    display: inline-block;
+    max-width: 100%;
+    max-height: 100%;
+    border: 2px solid teal;
+    border-radius: 11px;
+    background-color: teal; 
+    margin-bottom: 10px;
+    padding: 5px;
+ 
+}
+
+.lang {
+    color: black;
+
+    max-width: 100%;
+    max-height: 100%;
+   
+    border-radius: 11px;
+
+    margin-bottom: 10px;
+    padding: 5px;
+ 
+}
+
+.y {
+    list-style: none;
+}
+
+.tool {
+    color: black;
+    display: inline-block;
+    max-width: 100%5;
+    max-height: 100%;
+    border: 2px solid teal;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 5px;
+ 
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    background-color: teal;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 5px 5px;
+}
+
+.dot1 {
+    height: 15px;
+    width: 15px;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    border: 2px solid teal;
+    margin: 5px 5px;
+}
+
+/* End of content */
+
+/* Beginning of media query*/
+
+@media (max-width: 450px) {
+
+#\#wrapper {
+    margin: 15px auto;
+    width: 90vw;
+    
+}
+    
+header {
+    max-width: 100%;
+}
+
+.left-header {
+    width: 100%;
+    margin-left: 0;
+    
+}
+
+
+.right-header{
+    
+    width: 100%;
+    
+}
+
+.mid-header {
+    width: 0%;
+   
+}
+
+.header1 {
+    flex-direction: column;
+}
+
+h1 {
+   
+    font-size: 24px;
+    margin-bottom: 10px;
+    
+}
+
+h2 {
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.left-header h2 {
+    width: 50%;
+}
+
+figure {
+    position: relative;
+    bottom: 290px;
+    left: 220px;
+}
+
+figure img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 90px;
+    height: 90px;   
+    
+}
+
+.left-header p {
+    max-width: 100%;
+    margin-top: 20px;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+#contact {
+    padding: 10px 50px;
+    margin-top: -50px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+.left {
+    margin: 0;
+    width: 100%;
+
+}
+
+.right {
+    margin: 0;
+    width: 100%;    
+}
+
+.work h2 {
+    margin-top: 20px;
+}
+ .skills h2 {
+     margin-top: 20px;
+ }
+ 
+}
+
+/**navigation bar*/
+.topnav {
+    width: 100%;
+    text-align: center;
+    padding: 10px 50px 10px 100px;
+  background-color: teal;
+  overflow: hidden;
+}.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}.topnav a:hover {
+  background-color: #ddd;
+  color: black;}
+/* }.topnav a.active {
+  background-color: lightblue;
+  color: white;
+} */
+
+ /* Style inputs with type="text", select elements and textareas */
+ input[type=text], select, textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */ 
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+  }
+  
+  /* Style the submit button with a specific background color etc */
+  input[type=submit] {
+    background-color: teal;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* When moving the mouse over the submit button, add a darker green color */
+  input[type=submit]:hover {
+    background-color: teal;
+  }
+  
+  /* Add a background color and some padding around the form */
+  .container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  } 
